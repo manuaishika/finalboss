@@ -1,33 +1,53 @@
-// Theme toggle functionality
+// System theme functionality
 const themeToggle = document.querySelector('.theme-toggle');
 const body = document.body;
 
-// Check for saved theme preference or default to light theme
-const savedTheme = localStorage.getItem('theme') || 'light';
-body.classList.toggle('dark-theme', savedTheme === 'dark');
-
-// Update theme toggle icon
-function updateThemeIcon() {
-    const icon = themeToggle.querySelector('i');
-    if (body.classList.contains('dark-theme')) {
-        icon.className = 'fas fa-sun';
-        themeToggle.title = 'Switch to light theme';
-    } else {
-        icon.className = 'fas fa-moon';
-        themeToggle.title = 'Switch to dark theme';
+// Check for system theme preference
+function getSystemTheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
     }
+    return 'light';
 }
 
-// Toggle theme
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-    localStorage.setItem('theme', currentTheme);
-    updateThemeIcon();
-});
+// Apply system theme
+function applySystemTheme() {
+    const systemTheme = getSystemTheme();
+    body.classList.toggle('dark-theme', systemTheme === 'dark');
+    localStorage.setItem('theme', 'system');
+}
 
-// Initialize theme icon
-updateThemeIcon();
+// Check for saved theme preference or default to system
+const savedTheme = localStorage.getItem('theme') || 'system';
+if (savedTheme === 'system') {
+    applySystemTheme();
+} else {
+    body.classList.toggle('dark-theme', savedTheme === 'dark');
+}
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
+
+// Toggle between system and manual themes (guard for pages without the button)
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        if (localStorage.getItem('theme') === 'system') {
+            // Switch to manual light theme
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+            themeToggle.title = 'System theme';
+        } else if (localStorage.getItem('theme') === 'light') {
+            // Switch to manual dark theme
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+            themeToggle.title = 'System theme';
+        } else {
+            // Switch back to system theme
+            applySystemTheme();
+            themeToggle.title = 'System theme';
+        }
+    });
+}
 
 // Live timestamp updates
 function updateTimestamp() {
@@ -301,39 +321,41 @@ skillTags.forEach((tag, index) => {
 const cursor = document.querySelector('.custom-cursor');
 const cursorTrail = document.querySelector('.cursor-trail');
 
-// Update cursor position
+// Update cursor position (guard when custom cursor is not present)
 document.addEventListener('mousemove', (e) => {
+    if (!cursor || !cursorTrail) return;
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
     
     // Add slight delay for trail effect
     setTimeout(() => {
+        if (!cursorTrail) return;
         cursorTrail.style.left = e.clientX + 'px';
         cursorTrail.style.top = e.clientY + 'px';
     }, 100);
 });
 
 // Add hover effect for interactive elements
-const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .project-item, .experience-item, .copy-icon');
+const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .copy-icon');
 interactiveElements.forEach(element => {
     element.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
+        if (cursor) cursor.classList.add('hover');
     });
     
     element.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
+        if (cursor) cursor.classList.remove('hover');
     });
 });
 
 // Hide cursor when leaving window
 document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-    cursorTrail.style.opacity = '0';
+    if (cursor) cursor.style.opacity = '0';
+    if (cursorTrail) cursorTrail.style.opacity = '0';
 });
 
 document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-    cursorTrail.style.opacity = '1';
+    if (cursor) cursor.style.opacity = '1';
+    if (cursorTrail) cursorTrail.style.opacity = '1';
 });
 
 console.log('Portfolio website loaded successfully! 🚀');

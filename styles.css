@@ -344,6 +344,67 @@ body.dark-theme .description {
     color: #d1d5db;
 }
 
+/* Expressions Section */
+.expressions-section {
+    margin-bottom: 3rem;
+}
+
+.expressions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.expression-item {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    transition: none;
+}
+
+.expression-item:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+body.dark-theme .expression-item {
+    background: transparent;
+    border-color: transparent;
+}
+
+.expression-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.expression-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+
+body.dark-theme .expression-title {
+    color: #fff;
+}
+
+.expression-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+body.dark-theme .expression-description {
+    color: #999;
+}
+
+/* Beliefs Section */
+.beliefs-section {
+    margin-bottom: 3rem;
+}
+
 /* Skills Section */
 .skills-section {
     margin-bottom: 3rem;
@@ -364,26 +425,11 @@ body.dark-theme .description {
     font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    animation: skillFloat 3s ease-in-out infinite;
 }
-
-.skill-tag:nth-child(2) { animation-delay: 0.2s; }
-.skill-tag:nth-child(3) { animation-delay: 0.4s; }
-.skill-tag:nth-child(4) { animation-delay: 0.6s; }
-.skill-tag:nth-child(5) { animation-delay: 0.8s; }
-.skill-tag:nth-child(6) { animation-delay: 1.0s; }
-.skill-tag:nth-child(7) { animation-delay: 1.2s; }
-.skill-tag:nth-child(8) { animation-delay: 1.4s; }
 
 .skill-tag:hover {
     background: #1f2937;
-    transform: translateY(-5px) scale(1.05);
-    animation-play-state: paused;
-}
-
-@keyframes skillFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    transform: translateY(-2px);
 }
 
 body.dark-theme .skill-tag {
@@ -516,7 +562,29 @@ body.dark-theme .control-btn:hover {
 }
 
 .theme-toggle {
-    color: #f59e0b;
+    color: #666;
+    background: #f5f5f5;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: #e5e7eb;
+    color: #000;
+}
+
+body.dark-theme .theme-toggle {
+    background: #374151;
+    color: #d1d5db;
+}
+
+body.dark-theme .theme-toggle:hover {
+    background: #4b5563;
+    color: #fff;
 }
 
 /* About Page Styles */
@@ -687,6 +755,11 @@ body.dark-theme .back-link:hover {
     
     .headline {
         font-size: 2rem;
+    }
+    
+    .expressions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
     }
 }
 
