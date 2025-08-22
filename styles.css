@@ -150,11 +150,27 @@ body.dark-theme .about-text {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .nav-links a:hover {
     color: #000;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #10b981;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 body.dark-theme .nav-links a {
@@ -162,6 +178,97 @@ body.dark-theme .nav-links a {
 }
 
 body.dark-theme .nav-links a:hover {
+    color: #fff;
+}
+
+/* Venn Diagram Section */
+.venn-section {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.venn-diagram {
+    position: relative;
+    width: 400px;
+    height: 350px;
+    margin: 0 auto 2rem;
+}
+
+.venn-circle {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    background: transparent;
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.venn-circle:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.venn-circle.purpose {
+    top: 40px;
+    left: 60px;
+}
+
+.venn-circle.resilience {
+    top: 40px;
+    right: 60px;
+}
+
+.venn-circle.empathy {
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.venn-circle.purpose:hover {
+    background: rgba(16, 185, 129, 0.8);
+    border-color: #10b981;
+}
+
+.venn-circle.resilience:hover {
+    background: rgba(59, 130, 246, 0.8);
+    border-color: #3b82f6;
+}
+
+.venn-circle.empathy:hover {
+    background: rgba(168, 85, 247, 0.8);
+    border-color: #a855f7;
+}
+
+.venn-circle span {
+    text-align: center;
+    line-height: 1.2;
+}
+
+.venn-description {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+body.dark-theme .venn-description {
+    color: #999;
+}
+
+body.dark-theme .venn-circle {
+    color: #999;
+    border-color: #4b5563;
+}
+
+body.dark-theme .venn-circle:hover {
     color: #fff;
 }
 
@@ -405,40 +512,203 @@ body.dark-theme .expression-description {
     margin-bottom: 3rem;
 }
 
+.beliefs-intro {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+body.dark-theme .beliefs-intro {
+    color: #999;
+}
+
+.beliefs-list {
+    list-style: none;
+    padding: 0;
+}
+
+.beliefs-list li {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.beliefs-list li::before {
+    content: "•";
+    color: #10b981;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+body.dark-theme .beliefs-list li {
+    color: #ccc;
+}
+
+body.dark-theme .beliefs-list li::before {
+    color: #10b981;
+}
+
+/* Now Section */
+.now-section {
+    margin-bottom: 3rem;
+}
+
+.now-content {
+    display: grid;
+    gap: 2rem;
+}
+
+.subsection-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000;
+    text-transform: lowercase;
+}
+
+body.dark-theme .subsection-title {
+    color: #fff;
+}
+
+.education-item, .work-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+body.dark-theme .education-item,
+body.dark-theme .work-item {
+    border-bottom-color: #333;
+}
+
+.education-header, .work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.institution, .company {
+    font-weight: 600;
+    color: #000;
+}
+
+.degree, .role {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+body.dark-theme .institution,
+body.dark-theme .company {
+    color: #fff;
+}
+
+body.dark-theme .degree,
+body.dark-theme .role {
+    color: #999;
+}
+
+.education-details, .work-details {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+body.dark-theme .education-details,
+body.dark-theme .work-details {
+    color: #999;
+}
+
+.work-description {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+body.dark-theme .work-description {
+    color: #ccc;
+}
+
+/* Someday Section */
+.someday-section {
+    margin-bottom: 3rem;
+}
+
+.someday-description {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+body.dark-theme .someday-description {
+    color: #999;
+}
+
+.someday-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.someday-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+body.dark-theme .someday-item {
+    border-bottom-color: #333;
+}
+
+.someday-text {
+    font-size: 0.9rem;
+    color: #444;
+}
+
+body.dark-theme .someday-text {
+    color: #ccc;
+}
+
 /* Skills Section */
 .skills-section {
     margin-bottom: 3rem;
 }
 
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: flex-start;
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
 }
 
-.skill-tag {
-    background: #374151;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
+.skills-list li {
+    font-size: 0.9rem;
+    color: #444;
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
 }
 
-.skill-tag:hover {
-    background: #1f2937;
-    transform: translateY(-2px);
+.skills-list li::before {
+    content: "•";
+    color: #10b981;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
 }
 
-body.dark-theme .skill-tag {
-    background: #6b7280;
-    color: #fff;
+body.dark-theme .skills-list li {
+    color: #ccc;
 }
 
-body.dark-theme .skill-tag:hover {
-    background: #4b5563;
+body.dark-theme .skills-list li::before {
+    color: #10b981;
 }
 
 /* Elsewhere Section */
