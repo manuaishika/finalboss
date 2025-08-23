@@ -1239,7 +1239,7 @@ body.dark-theme .github-text:hover {
 }
 
 .school-life-intro {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .school-life-intro p {
@@ -1275,6 +1275,49 @@ body.dark-theme .school-link {
 
 body.dark-theme .school-link:hover {
     color: #93c5fd;
+}
+
+.school-achievements {
+    margin-top: 3rem;
+}
+
+.achievement-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.achievement-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+body.dark-theme .achievement-item {
+    border-bottom-color: #333;
+}
+
+.achievement-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 1rem;
+    text-transform: lowercase;
+}
+
+body.dark-theme .achievement-title {
+    color: #fff;
+}
+
+.achievement-details {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+}
+
+body.dark-theme .achievement-details {
+    color: #999;
 }
 
 .school-motto {
