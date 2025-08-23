@@ -862,3 +862,156 @@ body.dark-theme .site-item p {
         font-size: 0.8rem;
     }
 }
+
+.someday-text {
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.someday-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.someday-link:hover .someday-text {
+    color: #10b981;
+}
+
+body.dark-theme .someday-text {
+    color: #ccc;
+}
+
+body.dark-theme .someday-link:hover .someday-text {
+    color: #10b981;
+}
+
+/* Now Section Styles */
+.now-section {
+    margin-bottom: 3rem;
+}
+
+.now-content {
+    display: grid;
+    gap: 3rem;
+}
+
+.education-section, .work-section {
+    margin-bottom: 2rem;
+}
+
+.subsection-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #000;
+    text-transform: lowercase;
+}
+
+body.dark-theme .subsection-title {
+    color: #fff;
+}
+
+.education-item, .work-item {
+    margin-bottom: 2rem;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    transition: none;
+}
+
+.education-item:hover, .work-item:hover {
+    border-color: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+body.dark-theme .education-item,
+body.dark-theme .work-item {
+    background: transparent;
+    border-color: transparent;
+}
+
+.education-header, .work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.institution, .company {
+    font-weight: 600;
+    color: #000;
+    font-size: 1.1rem;
+}
+
+.company a {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.company a:hover {
+    color: #1d4ed8;
+}
+
+.degree, .role {
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+body.dark-theme .institution,
+body.dark-theme .company {
+    color: #fff;
+}
+
+body.dark-theme .degree,
+body.dark-theme .role {
+    color: #9ca3af;
+}
+
+.education-details, .work-details {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.duration, .location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.duration::before {
+    content: "🕒";
+    font-size: 0.8rem;
+}
+
+.location::before {
+    content: "📍";
+    font-size: 0.8rem;
+}
+
+body.dark-theme .education-details,
+body.dark-theme .work-details {
+    color: #9ca3af;
+}
+
+.work-description {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+}
+
+body.dark-theme .work-description {
+    color: #d1d5db;
+}
