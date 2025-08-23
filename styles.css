@@ -534,9 +534,13 @@ body.dark-theme .timestamp {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #e5e7eb;
     transition: 0.3s;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
 }
 
 .slider:before {
@@ -549,37 +553,45 @@ body.dark-theme .timestamp {
     background-color: white;
     transition: 0.3s;
     border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 input:checked + .slider {
-    background-color: #10b981;
+    background-color: #374151;
 }
 
 input:checked + .slider:before {
     transform: translateX(30px);
 }
 
-.toggle-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.sun-icon, .moon-icon {
     font-size: 12px;
-    color: #666;
-    pointer-events: none;
-    transition: 0.3s;
+    z-index: 1;
+    transition: opacity 0.3s ease;
 }
 
-input:checked + .slider .toggle-label {
-    color: #fff;
+.sun-icon {
+    opacity: 1;
+}
+
+.moon-icon {
+    opacity: 0;
+}
+
+input:checked + .slider .sun-icon {
+    opacity: 0;
+}
+
+input:checked + .slider .moon-icon {
+    opacity: 1;
 }
 
 body.dark-theme .slider {
-    background-color: #4b5563;
+    background-color: #374151;
 }
 
-body.dark-theme .toggle-label {
-    color: #999;
+body.dark-theme .slider:before {
+    background-color: white;
 }
 
 /* About Page Styles */
