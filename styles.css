@@ -660,6 +660,62 @@ body.dark-theme .about-tagline {
     text-align: left;
 }
 
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.content-section .section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000;
+    text-transform: lowercase;
+}
+
+body.dark-theme .content-section .section-title {
+    color: #fff;
+}
+
+.content-section .about-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 0;
+}
+
+body.dark-theme .content-section .about-text {
+    color: #ccc;
+}
+
+.interests-list {
+    list-style: none;
+    padding: 0;
+}
+
+.interests-list li {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.interests-list li::before {
+    content: "•";
+    color: #10b981;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+body.dark-theme .interests-list li {
+    color: #ccc;
+}
+
+body.dark-theme .interests-list li::before {
+    color: #10b981;
+}
+
 .back-nav {
     margin-top: 3rem;
     text-align: left;
