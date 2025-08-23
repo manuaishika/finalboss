@@ -425,7 +425,7 @@ body.dark-theme .skills-list li::before {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0.75rem 0;
+    padding: 0.4rem 0;
 }
 
 .social-label {
@@ -1231,7 +1231,7 @@ body.dark-theme .github-text:hover {
 
 /* What Was Page Styles */
 .what-was-section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .what-was-content {
@@ -1239,14 +1239,14 @@ body.dark-theme .github-text:hover {
 }
 
 .school-life-intro {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .school-life-intro p {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    line-height: 1.8;
     color: #444;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .school-life-intro p:last-child {
@@ -1278,12 +1278,12 @@ body.dark-theme .school-link:hover {
 }
 
 .school-achievements {
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .achievement-item {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
     border-bottom: 1px solid #e5e7eb;
 }
 
@@ -1298,11 +1298,12 @@ body.dark-theme .achievement-item {
 }
 
 .achievement-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: #000;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     text-transform: lowercase;
+    letter-spacing: -0.01em;
 }
 
 body.dark-theme .achievement-title {
@@ -1310,14 +1311,14 @@ body.dark-theme .achievement-title {
 }
 
 .achievement-details {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
     margin: 0;
 }
 
 body.dark-theme .achievement-details {
-    color: #999;
+    color: #aaa;
 }
 
 .school-motto {
