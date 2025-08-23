@@ -1,53 +1,41 @@
-// System theme functionality
-const themeToggle = document.querySelector('.theme-toggle');
+// Theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Check for system theme preference
-function getSystemTheme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-    }
-    return 'light';
-}
-
-// Apply system theme
-function applySystemTheme() {
-    const systemTheme = getSystemTheme();
-    body.classList.toggle('dark-theme', systemTheme === 'dark');
-    localStorage.setItem('theme', 'system');
-}
-
-// Check for saved theme preference or default to system
+// Check for saved theme preference or default to system preference
+const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 const savedTheme = localStorage.getItem('theme') || 'system';
-if (savedTheme === 'system') {
-    applySystemTheme();
-} else {
-    body.classList.toggle('dark-theme', savedTheme === 'dark');
+
+// Apply theme
+const applyTheme = (theme) => {
+    if (theme === 'dark' || (theme === 'system' && getSystemTheme() === 'dark')) {
+        body.classList.add('dark-theme');
+        if (themeToggle) themeToggle.checked = true;
+    } else {
+        body.classList.remove('dark-theme');
+        if (themeToggle) themeToggle.checked = false;
+    }
+};
+
+// Initialize theme
+applyTheme(savedTheme);
+
+// Theme toggle event listener
+if (themeToggle) {
+    themeToggle.addEventListener('change', () => {
+        const newTheme = themeToggle.checked ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
 }
 
 // Listen for system theme changes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
-
-// Toggle between system and manual themes (guard for pages without the button)
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        if (localStorage.getItem('theme') === 'system') {
-            // Switch to manual light theme
-            body.classList.remove('dark-theme');
-            localStorage.setItem('theme', 'light');
-            themeToggle.title = 'System theme';
-        } else if (localStorage.getItem('theme') === 'light') {
-            // Switch to manual dark theme
-            body.classList.add('dark-theme');
-            localStorage.setItem('theme', 'dark');
-            themeToggle.title = 'System theme';
-        } else {
-            // Switch back to system theme
-            applySystemTheme();
-            themeToggle.title = 'System theme';
-        }
-    });
-}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'system') {
+        applyTheme('system');
+    }
+});
 
 // Live timestamp updates
 function updateTimestamp() {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes - Aishika Manu</title>
+    <title>notes - aishika manu</title>
     <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,48 +11,44 @@
 <body>
     <div class="custom-cursor"></div>
     <div class="cursor-trail"></div>
-
+    
     <div class="container">
-        <main class="main-content">
-            <div class="content-wrapper">
-                <nav class="breadcrumb">
-                    <a href="../index.html">home</a>
-                    <span class="separator">></span>
-                    <span class="current">notes</span>
-                </nav>
-
-                <div class="about-header">
-                    <h1 class="about-title">notes</h1>
-                    <p class="about-tagline">what i've penned and shared, thoughtfully.</p>
+        <div class="content-wrapper">
+            <nav class="breadcrumb">
+                <a href="../index.html">home</a> / notes
+            </nav>
+            
+            <header class="about-header">
+                <h1 class="about-title">notes</h1>
+                <p class="about-tagline">what I've penned and shared, thoughtfully.</p>
+            </header>
+            
+            <main class="about-content">
+                <div class="notes-list">
+                    <article class="note-item">
+                        <a href="time-article.html" class="note-link">
+                            <h3 class="note-title">there's nothing like enough time but you aren't running out of it either</h3>
+                            <p class="note-excerpt">i'm done with 4 semesters of my college. i've got one enemy and it's the passage of time...</p>
+                        </a>
+                    </article>
+                    
+                    <article class="note-item">
+                        <a href="sites-article.html" class="note-link">
+                            <h3 class="note-title">sites i often visit</h3>
+                            <p class="note-excerpt">a collection of websites that inspire, challenge, and expand my thinking...</p>
+                        </a>
+                    </article>
                 </div>
-
-                <section class="projects-section">
-                    <ul class="project-list">
-                        <li class="project-item">
-                            <div>
-                                <div class="project-title">post title goes here</div>
-                                <div class="project-meta">aug 2025 • 4 min read</div>
-                            </div>
-                        </li>
-                        <li class="project-item">
-                            <div>
-                                <div class="project-title">another thoughtful piece</div>
-                                <div class="project-meta">jul 2025 • 6 min read</div>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-
+                
                 <div class="back-nav">
                     <a href="../index.html" class="back-link">
-                        <i class="fas fa-arrow-left"></i>
-                        <span>back to home</span>
+                        <i class="fas fa-arrow-left"></i> back to home
                     </a>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
-
+    
     <script src="../script.js"></script>
 </body>
 </html>
