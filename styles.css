@@ -1228,3 +1228,64 @@ body.dark-theme .github-text {
 body.dark-theme .github-text:hover {
     color: #93c5fd;
 }
+
+/* What Was Page Styles */
+.what-was-section {
+    margin-bottom: 3rem;
+}
+
+.what-was-content {
+    text-align: left;
+}
+
+.school-life-intro {
+    margin-bottom: 2rem;
+}
+
+.school-life-intro p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.school-life-intro p:last-child {
+    margin-bottom: 0;
+}
+
+body.dark-theme .school-life-intro p {
+    color: #ccc;
+}
+
+.school-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.school-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+body.dark-theme .school-link {
+    color: #60a5fa;
+}
+
+body.dark-theme .school-link:hover {
+    color: #93c5fd;
+}
+
+.school-motto {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #10b981 !important;
+    text-align: center !important;
+    margin-top: 2rem !important;
+    font-style: italic !important;
+}
+
+body.dark-theme .school-motto {
+    color: #10b981 !important;
+}
