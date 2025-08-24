@@ -767,6 +767,32 @@ body.dark-theme .back-link:hover {
     color: #fff;
 }
 
+/* Theme Link Styles */
+.theme-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #10b981;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.theme-link:hover {
+    color: #059669;
+    text-decoration: underline;
+}
+
+body.dark-theme .theme-link {
+    color: #34d399;
+}
+
+body.dark-theme .theme-link:hover {
+    color: #10b981;
+}
+
 /* Notes List Styling */
 .notes-list {
     margin-bottom: 3rem;
@@ -1378,6 +1404,53 @@ body.dark-theme .intro-text {
     line-height: 1.8;
 }
 
+/* Dropdown Section Styles */
+.dropdown-section {
+    margin-bottom: 2rem;
+}
+
+.dropdown-section .section-title {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.dropdown-section .section-title:hover {
+    color: #10b981;
+    border-bottom-color: #10b981;
+}
+
+.dropdown-section .section-title::after {
+    content: "▼";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: #10b981;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-section .section-title:hover::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.dropdown-section:hover .dropdown-content {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .achievements-list li::before, .fun-times-list li::before, .build-lead-list li::before {
     content: "•";
     color: #10b981;
@@ -1419,4 +1492,50 @@ body.dark-theme .college-link {
 
 body.dark-theme .college-link:hover {
     color: #10b981;
+}
+
+/* Theme Page Styles */
+.theme-section {
+    margin-bottom: 3rem;
+}
+
+.theme-list {
+    list-style: none;
+    padding: 0;
+}
+
+.theme-list li {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.theme-list li::before {
+    content: "•";
+    color: #10b981;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+body.dark-theme .theme-list li {
+    color: #ccc;
+}
+
+body.dark-theme .theme-list li::before {
+    color: #10b981;
+}
+
+.theme-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+body.dark-theme .theme-text {
+    color: #ccc;
 }
