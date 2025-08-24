@@ -623,9 +623,9 @@ body.dark-theme .slider:before {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 2rem;
+    margin-top: 2rem;
     font-size: 0.9rem;
     color: #666;
-    padding-top: 2rem;
 }
 
 .breadcrumb a {
@@ -1332,4 +1332,91 @@ body.dark-theme .achievement-details {
 
 body.dark-theme .school-motto {
     color: #10b981 !important;
+}
+
+/* College Chronicles Page Styles */
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #000;
+    line-height: 1.2;
+    text-transform: lowercase;
+}
+
+body.dark-theme .page-title {
+    color: #fff;
+}
+
+.intro-section {
+    margin-bottom: 4rem;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+body.dark-theme .intro-text {
+    color: #ccc;
+}
+
+/* College Chronicles Bullet Point Styles */
+.achievements-list, .fun-times-list, .build-lead-list {
+    list-style: none;
+    padding: 0;
+}
+
+.achievements-list li, .fun-times-list li, .build-lead-list li {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.achievements-list li::before, .fun-times-list li::before, .build-lead-list li::before {
+    content: "•";
+    color: #10b981;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+body.dark-theme .achievements-list li,
+body.dark-theme .fun-times-list li,
+body.dark-theme .build-lead-list li {
+    color: #ccc;
+}
+
+body.dark-theme .achievements-list li::before,
+body.dark-theme .fun-times-list li::before,
+body.dark-theme .build-lead-list li::before {
+    color: #10b981;
+}
+
+/* College Link Styles */
+.college-link {
+    color: #10b981;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.college-link:hover {
+    color: #059669;
+    text-decoration: underline;
+}
+
+body.dark-theme .college-link {
+    color: #34d399;
+}
+
+body.dark-theme .college-link:hover {
+    color: #10b981;
 }
