@@ -217,8 +217,8 @@ body.dark-theme .venn-intro {
 
 /* Single phased spotlight; per-circle delays keep exactly one active */
 @keyframes spotCycle {
-    0%, 25% { border-color: var(--spot-border); background: var(--spot-bg); }
-    26%, 100% { border-color: #e5e7eb; background: transparent; }
+    0%, 29% { border-color: var(--spot-border); background: var(--spot-bg); }
+    29.01%, 100% { border-color: #e5e7eb; background: transparent; }
 }
 
 .venn-circle:hover {
@@ -232,7 +232,7 @@ body.dark-theme .venn-intro {
     left: 60px;
     --spot-border: rgba(16, 185, 129, 0.6);
     --spot-bg: rgba(16, 185, 129, 0.05);
-    animation: spotCycle 6s ease-in-out infinite;
+    animation: spotCycle 9s linear infinite;
     animation-delay: 0s;
 }
 
@@ -241,8 +241,8 @@ body.dark-theme .venn-intro {
     right: 60px;
     --spot-border: rgba(59, 130, 246, 0.6);
     --spot-bg: rgba(59, 130, 246, 0.05);
-    animation: spotCycle 6s ease-in-out infinite;
-    animation-delay: 2s;
+    animation: spotCycle 9s linear infinite;
+    animation-delay: 3s;
 }
 
 .venn-circle.empathy {
@@ -251,8 +251,8 @@ body.dark-theme .venn-intro {
     transform: translateX(-50%);
     --spot-border: rgba(168, 85, 247, 0.6);
     --spot-bg: rgba(168, 85, 247, 0.05);
-    animation: spotCycle 6s ease-in-out infinite;
-    animation-delay: 4s;
+    animation: spotCycle 9s linear infinite;
+    animation-delay: 6s;
 }
 
 /* Group hover behavior: dim non-hovered circles, keep hovered prominent */
