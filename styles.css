@@ -211,6 +211,36 @@ body.dark-theme .venn-intro {
     background: transparent;
     border: 2px solid #e5e7eb;
     transition: all 0.3s ease;
+    animation: none;
+}
+
+@keyframes spotPurpose {
+    0%   { border-color: #e5e7eb; background: transparent; }
+    6%   { border-color: rgba(16, 185, 129, 0.25); background: rgba(16, 185, 129, 0.04); }
+    14%  { border-color: rgba(16, 185, 129, 0.40); background: rgba(16, 185, 129, 0.07); }
+    20%  { border-color: rgba(16, 185, 129, 0.40); background: rgba(16, 185, 129, 0.07); }
+    29%  { border-color: rgba(16, 185, 129, 0.20); background: rgba(16, 185, 129, 0.035); }
+    33%  { border-color: #e5e7eb; background: transparent; }
+    100% { border-color: #e5e7eb; background: transparent; }
+}
+
+@keyframes spotResilience {
+    0%, 33% { border-color: #e5e7eb; background: transparent; }
+    39%  { border-color: rgba(59, 130, 246, 0.25); background: rgba(59, 130, 246, 0.04); }
+    47%  { border-color: rgba(59, 130, 246, 0.40); background: rgba(59, 130, 246, 0.07); }
+    53%  { border-color: rgba(59, 130, 246, 0.40); background: rgba(59, 130, 246, 0.07); }
+    61%  { border-color: rgba(59, 130, 246, 0.20); background: rgba(59, 130, 246, 0.035); }
+    66%  { border-color: #e5e7eb; background: transparent; }
+    100% { border-color: #e5e7eb; background: transparent; }
+}
+
+@keyframes spotEmpathy {
+    0%, 66% { border-color: #e5e7eb; background: transparent; }
+    72%  { border-color: rgba(168, 85, 247, 0.25); background: rgba(168, 85, 247, 0.04); }
+    80%  { border-color: rgba(168, 85, 247, 0.40); background: rgba(168, 85, 247, 0.07); }
+    86%  { border-color: rgba(168, 85, 247, 0.40); background: rgba(168, 85, 247, 0.07); }
+    94%  { border-color: rgba(168, 85, 247, 0.20); background: rgba(168, 85, 247, 0.035); }
+    100% { border-color: #e5e7eb; background: transparent; }
 }
 
 .venn-circle:hover {
@@ -221,17 +251,20 @@ body.dark-theme .venn-intro {
 .venn-circle.purpose {
     top: 40px;
     left: 60px;
+    animation: spotPurpose 2s ease-in-out infinite;
 }
 
 .venn-circle.resilience {
     top: 40px;
     right: 60px;
+    animation: spotResilience 2s ease-in-out infinite;
 }
 
 .venn-circle.empathy {
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
+    animation: spotEmpathy 2s ease-in-out infinite;
 }
 
 .venn-circle.purpose:hover {
@@ -1148,7 +1181,9 @@ body.dark-theme .extensions-title {
 }
 
 .extension-link {
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
     color: inherit;
     transition: color 0.2s ease;
 }
