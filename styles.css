@@ -1059,7 +1059,7 @@ body.dark-theme .subsection-title {
 }
 
 .education-item, .work-item {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding: 0;
     border: none;
     border-radius: 0;
@@ -1581,4 +1581,18 @@ body.dark-theme .theme-list li::before {
 
 body.dark-theme .theme-text {
     color: #ccc;
+}
+
+/* Section Divider */
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 0.75rem 0;
+    opacity: 0.6;
+}
+
+body.dark-theme .section-divider {
+    background-color: #4b5563;
+    opacity: 0.4;
 }
