@@ -210,7 +210,7 @@ body.dark-theme .venn-intro {
     color: #666;
     background: transparent;
     border: 2px solid #e5e7eb;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease;
     animation: none;
 }
 
@@ -840,9 +840,9 @@ body.dark-theme .theme-link:hover {
 }
 
 .note-item:hover {
-    border-color: #10b981;
+    border-color: #111827;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 4px 12px rgba(17, 24, 39, 0.08);
 }
 
 .note-link {
@@ -870,8 +870,8 @@ body.dark-theme .note-item {
 }
 
 body.dark-theme .note-item:hover {
-    border-color: #10b981;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+    border-color: #f9fafb;
+    box-shadow: 0 4px 12px rgba(249, 250, 251, 0.08);
 }
 
 body.dark-theme .note-title {
@@ -948,10 +948,13 @@ body.dark-theme .article-content p {
     color: #1f2937;
     margin-bottom: 0.75rem;
     transition: color 0.3s ease;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
 }
 
 .site-link:hover h3 {
-    color: #fff;
+    color: #111827;
 }
 
 .site-item p {
@@ -971,6 +974,13 @@ body.dark-theme .site-item:hover {
 }
 
 body.dark-theme .site-link h3 {
+    color: #f9fafb;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+}
+
+body.dark-theme .site-link:hover h3 {
     color: #f9fafb;
 }
 
