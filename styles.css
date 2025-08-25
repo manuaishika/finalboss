@@ -215,24 +215,10 @@ body.dark-theme .venn-intro {
     cursor: pointer;
 }
 
-@keyframes spotPurpose {
-    0%, 1% { border-color: #e5e7eb; background: transparent; }
-    2%, 31% { border-color: rgba(16, 185, 129, 0.6); background: rgba(16, 185, 129, 0.05); }
-    32%, 33% { border-color: #e5e7eb; background: transparent; }
+/* Single phased spotlight; per-circle delays keep exactly one active */
+@keyframes spotCycle {
+    0%, 33% { border-color: var(--spot-border); background: var(--spot-bg); }
     34%, 100% { border-color: #e5e7eb; background: transparent; }
-}
-
-@keyframes spotResilience {
-    0%, 34% { border-color: #e5e7eb; background: transparent; }
-    35%, 64% { border-color: rgba(59, 130, 246, 0.6); background: rgba(59, 130, 246, 0.05); }
-    65%, 66% { border-color: #e5e7eb; background: transparent; }
-    67%, 100% { border-color: #e5e7eb; background: transparent; }
-}
-
-@keyframes spotEmpathy {
-    0%, 67% { border-color: #e5e7eb; background: transparent; }
-    68%, 97% { border-color: rgba(168, 85, 247, 0.6); background: rgba(168, 85, 247, 0.05); }
-    98%, 100% { border-color: #e5e7eb; background: transparent; }
 }
 
 .venn-circle:hover {
@@ -244,20 +230,29 @@ body.dark-theme .venn-intro {
 .venn-circle.purpose {
     top: 40px;
     left: 60px;
-    animation: spotPurpose 6s ease-in-out infinite;
+    --spot-border: rgba(16, 185, 129, 0.6);
+    --spot-bg: rgba(16, 185, 129, 0.05);
+    animation: spotCycle 2s ease-in-out infinite;
+    animation-delay: 0s;
 }
 
 .venn-circle.resilience {
     top: 40px;
     right: 60px;
-    animation: spotResilience 6s ease-in-out infinite;
+    --spot-border: rgba(59, 130, 246, 0.6);
+    --spot-bg: rgba(59, 130, 246, 0.05);
+    animation: spotCycle 2s ease-in-out infinite;
+    animation-delay: 0.6667s;
 }
 
 .venn-circle.empathy {
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    animation: spotEmpathy 6s ease-in-out infinite;
+    --spot-border: rgba(168, 85, 247, 0.6);
+    --spot-bg: rgba(168, 85, 247, 0.05);
+    animation: spotCycle 2s ease-in-out infinite;
+    animation-delay: 1.3333s;
 }
 
 /* Group hover behavior: dim non-hovered circles, keep hovered prominent */
