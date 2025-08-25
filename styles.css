@@ -1206,8 +1206,8 @@ body.dark-theme .extension-link:hover .extension-text {
 
 .extension-text {
     font-size: 0.9rem;
-    color: #666;
-    font-style: italic;
+    color: #3b82f6;
+    font-style: normal;
 }
 
 /* Projects Section */
@@ -1252,8 +1252,8 @@ body.dark-theme .project-link:hover .project-text {
 
 .project-text {
     font-size: 0.9rem;
-    color: #666;
-    font-style: italic;
+    color: #3b82f6;
+    font-style: normal;
 }
 
 .project-description {
