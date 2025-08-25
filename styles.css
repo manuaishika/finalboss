@@ -212,74 +212,77 @@ body.dark-theme .venn-intro {
     border: 2px solid #e5e7eb;
     transition: transform 0.2s ease;
     animation: none;
+    cursor: pointer;
 }
 
 @keyframes spotPurpose {
-    0%   { border-color: #e5e7eb; background: transparent; }
-    6%   { border-color: rgba(16, 185, 129, 0.25); background: rgba(16, 185, 129, 0.04); }
-    14%  { border-color: rgba(16, 185, 129, 0.40); background: rgba(16, 185, 129, 0.07); }
-    20%  { border-color: rgba(16, 185, 129, 0.40); background: rgba(16, 185, 129, 0.07); }
-    29%  { border-color: rgba(16, 185, 129, 0.20); background: rgba(16, 185, 129, 0.035); }
-    33%  { border-color: #e5e7eb; background: transparent; }
-    100% { border-color: #e5e7eb; background: transparent; }
+    0%, 1% { border-color: #e5e7eb; background: transparent; }
+    2%, 31% { border-color: rgba(16, 185, 129, 0.6); background: rgba(16, 185, 129, 0.05); }
+    32%, 33% { border-color: #e5e7eb; background: transparent; }
+    34%, 100% { border-color: #e5e7eb; background: transparent; }
 }
 
 @keyframes spotResilience {
-    0%, 33% { border-color: #e5e7eb; background: transparent; }
-    39%  { border-color: rgba(59, 130, 246, 0.25); background: rgba(59, 130, 246, 0.04); }
-    47%  { border-color: rgba(59, 130, 246, 0.40); background: rgba(59, 130, 246, 0.07); }
-    53%  { border-color: rgba(59, 130, 246, 0.40); background: rgba(59, 130, 246, 0.07); }
-    61%  { border-color: rgba(59, 130, 246, 0.20); background: rgba(59, 130, 246, 0.035); }
-    66%  { border-color: #e5e7eb; background: transparent; }
-    100% { border-color: #e5e7eb; background: transparent; }
+    0%, 34% { border-color: #e5e7eb; background: transparent; }
+    35%, 64% { border-color: rgba(59, 130, 246, 0.6); background: rgba(59, 130, 246, 0.05); }
+    65%, 66% { border-color: #e5e7eb; background: transparent; }
+    67%, 100% { border-color: #e5e7eb; background: transparent; }
 }
 
 @keyframes spotEmpathy {
-    0%, 66% { border-color: #e5e7eb; background: transparent; }
-    72%  { border-color: rgba(168, 85, 247, 0.25); background: rgba(168, 85, 247, 0.04); }
-    80%  { border-color: rgba(168, 85, 247, 0.40); background: rgba(168, 85, 247, 0.07); }
-    86%  { border-color: rgba(168, 85, 247, 0.40); background: rgba(168, 85, 247, 0.07); }
-    94%  { border-color: rgba(168, 85, 247, 0.20); background: rgba(168, 85, 247, 0.035); }
-    100% { border-color: #e5e7eb; background: transparent; }
+    0%, 67% { border-color: #e5e7eb; background: transparent; }
+    68%, 97% { border-color: rgba(168, 85, 247, 0.6); background: rgba(168, 85, 247, 0.05); }
+    98%, 100% { border-color: #e5e7eb; background: transparent; }
 }
 
 .venn-circle:hover {
     transform: scale(1.05);
-    color: #fff;
+    color: #1f2937;
+    animation: none;
 }
 
 .venn-circle.purpose {
     top: 40px;
     left: 60px;
-    animation: spotPurpose 2s ease-in-out infinite;
+    animation: spotPurpose 6s ease-in-out infinite;
 }
 
 .venn-circle.resilience {
     top: 40px;
     right: 60px;
-    animation: spotResilience 2s ease-in-out infinite;
+    animation: spotResilience 6s ease-in-out infinite;
 }
 
 .venn-circle.empathy {
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    animation: spotEmpathy 2s ease-in-out infinite;
+    animation: spotEmpathy 6s ease-in-out infinite;
+}
+
+/* Group hover behavior: dim non-hovered circles, keep hovered prominent */
+.venn-diagram:hover .venn-circle {
+    opacity: 0.35;
+}
+
+.venn-diagram .venn-circle:hover {
+    opacity: 1;
+    animation: none;
 }
 
 .venn-circle.purpose:hover {
-    background: rgba(16, 185, 129, 0.8);
-    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.22);
+    border-color: rgba(16, 185, 129, 0.95);
 }
 
 .venn-circle.resilience:hover {
-    background: rgba(59, 130, 246, 0.8);
-    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.22);
+    border-color: rgba(59, 130, 246, 0.95);
 }
 
 .venn-circle.empathy:hover {
-    background: rgba(168, 85, 247, 0.8);
-    border-color: #a855f7;
+    background: rgba(168, 85, 247, 0.22);
+    border-color: rgba(168, 85, 247, 0.95);
 }
 
 .venn-circle span {
@@ -305,7 +308,7 @@ body.dark-theme .venn-circle {
 }
 
 body.dark-theme .venn-circle:hover {
-    color: #fff;
+    color: #f9fafb;
 }
 
 /* Expressions Section */
