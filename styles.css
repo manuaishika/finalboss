@@ -232,8 +232,7 @@ body.dark-theme .venn-intro {
     left: 60px;
     --spot-border: rgba(16, 185, 129, 0.6);
     --spot-bg: rgba(16, 185, 129, 0.05);
-    animation: spotCycle 9s linear infinite;
-    animation-delay: 0s;
+    animation: none;
 }
 
 .venn-circle.resilience {
@@ -241,8 +240,7 @@ body.dark-theme .venn-intro {
     right: 60px;
     --spot-border: rgba(59, 130, 246, 0.6);
     --spot-bg: rgba(59, 130, 246, 0.05);
-    animation: spotCycle 9s linear infinite;
-    animation-delay: 3s;
+    animation: none;
 }
 
 .venn-circle.empathy {
@@ -251,18 +249,12 @@ body.dark-theme .venn-intro {
     transform: translateX(-50%);
     --spot-border: rgba(168, 85, 247, 0.6);
     --spot-bg: rgba(168, 85, 247, 0.05);
-    animation: spotCycle 9s linear infinite;
-    animation-delay: 6s;
-}
-
-/* Group hover behavior: dim non-hovered circles, keep hovered prominent */
-.venn-diagram:hover .venn-circle {
-    opacity: 0.35;
-}
-
-.venn-diagram .venn-circle:hover {
-    opacity: 1;
     animation: none;
+}
+
+/* Remove group dim effect */
+.venn-diagram:hover .venn-circle {
+    opacity: 1;
 }
 
 .venn-circle.purpose:hover {
