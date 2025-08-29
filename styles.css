@@ -1603,3 +1603,42 @@ body.dark-theme .section-divider {
     background-color: #4b5563;
     opacity: 0.4;
 }
+
+.inspiration-section {
+    margin-bottom: 3rem;
+}
+
+.inspiration-text {
+    font-size: 0.95rem;
+    color: #666;
+    max-width: 720px;
+    margin: 0 0 1rem 0;
+}
+
+.inspiration-list {
+    list-style: none;
+    padding: 0;
+}
+
+.inspiration-list li {
+    margin-bottom: 0.5rem;
+}
+
+.inspiration-link {
+    color: #3b82f6;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+}
+
+.inspiration-link:hover {
+    color: #1d4ed8;
+}
+
+body.dark-theme .inspiration-text {
+    color: #999;
+}
+
+body.dark-theme .inspiration-link:hover {
+    color: #93c5fd;
+}
