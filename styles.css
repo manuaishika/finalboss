@@ -1642,3 +1642,20 @@ body.dark-theme .inspiration-text {
 body.dark-theme .inspiration-link:hover {
     color: #93c5fd;
 }
+
+/* Custom text selection */
+::selection {
+    background: #ffd3e6; /* soft pink */
+    color: #111827;
+}
+
+::-moz-selection {
+    background: #ffd3e6;
+    color: #111827;
+}
+
+body.dark-theme ::selection,
+body.dark-theme ::-moz-selection {
+    background: #f0a6d8; /* slightly deeper pink for dark mode */
+    color: #111827;
+}
