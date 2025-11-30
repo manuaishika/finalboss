@@ -395,7 +395,7 @@ body.dark-theme .beliefs-intro {
 
 .beliefs-list li::before {
     content: "•";
-    color: #10b981;
+    color: #ff9ec7;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -406,7 +406,7 @@ body.dark-theme .beliefs-list li {
 }
 
 body.dark-theme .beliefs-list li::before {
-    color: #10b981;
+    color: #ff9ec7;
 }
 
 /* Skills Section */
@@ -432,7 +432,7 @@ body.dark-theme .beliefs-list li::before {
 
 .skills-list li::before {
     content: "•";
-    color: #10b981;
+    color: #ff9ec7;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -443,7 +443,7 @@ body.dark-theme .skills-list li {
 }
 
 body.dark-theme .skills-list li::before {
-    color: #10b981;
+    color: #ff9ec7;
 }
 
 /* Elsewhere Section */
@@ -763,7 +763,7 @@ body.dark-theme .content-section .about-text {
 
 .interests-list li::before {
     content: "•";
-    color: #10b981;
+    color: #ff9ec7;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -774,7 +774,7 @@ body.dark-theme .interests-list li {
 }
 
 body.dark-theme .interests-list li::before {
-    color: #10b981;
+    color: #ff9ec7;
 }
 
 .back-nav {
@@ -1503,7 +1503,7 @@ body.dark-theme .intro-text {
 
 .achievements-list li::before, .fun-times-list li::before, .build-lead-list li::before {
     content: "•";
-    color: #10b981;
+    color: #ff9ec7;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -1518,7 +1518,7 @@ body.dark-theme .build-lead-list li {
 body.dark-theme .achievements-list li::before,
 body.dark-theme .fun-times-list li::before,
 body.dark-theme .build-lead-list li::before {
-    color: #10b981;
+    color: #ff9ec7;
 }
 
 /* College Link Styles */
@@ -1565,7 +1565,7 @@ body.dark-theme .college-link:hover {
 
 .theme-list li::before {
     content: "•";
-    color: #10b981;
+    color: #ff9ec7;
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -1576,7 +1576,26 @@ body.dark-theme .theme-list li {
 }
 
 body.dark-theme .theme-list li::before {
-    color: #10b981;
+    color: #ff9ec7;
+}
+
+.theme-list a {
+    color: #ff9ec7;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.3s ease;
+}
+
+.theme-list a:hover {
+    color: #ff7eb3;
+}
+
+body.dark-theme .theme-list a {
+    color: #ffb3d9;
+}
+
+body.dark-theme .theme-list a:hover {
+    color: #ff9ec7;
 }
 
 .theme-text {
