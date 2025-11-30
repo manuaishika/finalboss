@@ -810,7 +810,7 @@ body.dark-theme .back-link:hover {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #10b981;
+    color: #ff9ec7;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -819,16 +819,16 @@ body.dark-theme .back-link:hover {
 }
 
 .theme-link:hover {
-    color: #059669;
+    color: #ff7eb3;
     text-decoration: underline;
 }
 
 body.dark-theme .theme-link {
-    color: #34d399;
+    color: #ffb3d9;
 }
 
 body.dark-theme .theme-link:hover {
-    color: #10b981;
+    color: #ff9ec7;
 }
 
 /* Notes List Styling */
@@ -1523,7 +1523,7 @@ body.dark-theme .build-lead-list li::before {
 
 /* College Link Styles */
 .college-link {
-    color: #10b981;
+    color: #ff9ec7;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -1532,16 +1532,16 @@ body.dark-theme .build-lead-list li::before {
 }
 
 .college-link:hover {
-    color: #059669;
+    color: #ff7eb3;
     text-decoration: underline;
 }
 
 body.dark-theme .college-link {
-    color: #34d399;
+    color: #ffb3d9;
 }
 
 body.dark-theme .college-link:hover {
-    color: #10b981;
+    color: #ff9ec7;
 }
 
 /* Theme Page Styles */
