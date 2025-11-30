@@ -1544,6 +1544,26 @@ body.dark-theme .college-link:hover {
     color: #ff9ec7;
 }
 
+/* Substack Link Styles */
+.substack-link {
+    color: #ff9ec7;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.3s ease;
+}
+
+.substack-link:hover {
+    color: #ff7eb3;
+}
+
+body.dark-theme .substack-link {
+    color: #ffb3d9;
+}
+
+body.dark-theme .substack-link:hover {
+    color: #ff9ec7;
+}
+
 /* Theme Page Styles */
 .theme-section {
     margin-bottom: 3rem;
