@@ -216,19 +216,188 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Command palette / quick navigation
+const commandPaletteItems = [
+    { title: 'home', description: 'return to the landing page', path: 'index.html' },
+    { title: 'about', description: 'learn more about me', path: 'about.html' },
+    { title: 'now / current', description: 'see what i am working on', path: 'now.html' },
+    { title: 'what was', description: 'past experiences and work', path: 'what-was.html' },
+    { title: 'someday', description: 'future plans & curiosities', path: 'someday.html' },
+    { title: 'notes', description: 'long-form writing and lists', path: 'notes/index.html' },
+    { title: '[in]Sites', description: 'web experiments & builds', path: 'insites/index.html' },
+    { title: 'theme', description: 'songs, hobbies, inspirations', path: 'theme.html' },
+    { title: 'college chronicles', description: 'semester-by-semester notes', path: 'college-chronicles.html' },
+    { title: 'what do you want to be', description: 'living note inside someday', path: 'someday/what-do-you-want-to-be.html' },
+    { title: 'sites i often visit', description: 'internet rabbit holes i revisit', path: 'notes/sites-article.html' },
+    { title: 'logbook', description: 'older experiments archive', path: 'https://manuaishika.github.io/logbook/', external: true },
+    { title: 'substack', description: 'read up on my substack', path: 'https://substack.com/@sillysnoopies?utm_source=user-menu', external: true },
+    { title: 'github', description: 'manuaishika on github', path: 'https://github.com/manuaishika', external: true }
+];
+
+const projectMarker = '/finalboss/';
+const fullHref = window.location.href;
+const basePath = fullHref.includes(projectMarker)
+    ? `${fullHref.split(projectMarker)[0]}${projectMarker}`
+    : (window.location.origin && window.location.origin !== 'null' ? `${window.location.origin}/` : './');
+
+const resolvePath = (path) => path.startsWith('http') ? path : `${basePath}${path.replace(/^\//, '')}`;
+
+const commandOverlay = document.createElement('div');
+commandOverlay.className = 'command-overlay';
+commandOverlay.innerHTML = `
+    <div class="command-dialog" role="dialog" aria-modal="true">
+        <div class="command-header">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="text" id="command-input" placeholder="jump to a page, note, or link..." aria-label="Command palette search" autocomplete="off" />
+            <button class="command-close" type="button">esc</button>
+        </div>
+        <div class="command-list"></div>
+    </div>
+`;
+document.body.appendChild(commandOverlay);
+
+const commandButton = document.createElement('button');
+commandButton.className = 'command-button';
+commandButton.setAttribute('aria-label', 'Open quick navigation');
+commandButton.innerHTML = '<i class="fas fa-search"></i>';
+document.body.appendChild(commandButton);
+
+const commandInput = commandOverlay.querySelector('#command-input');
+const commandList = commandOverlay.querySelector('.command-list');
+const commandCloseBtn = commandOverlay.querySelector('.command-close');
+
+let filteredCommands = [...commandPaletteItems];
+let activeCommandIndex = 0;
+
+const renderCommandList = () => {
+    commandList.innerHTML = '';
+
+    if (!filteredCommands.length) {
+        const emptyState = document.createElement('div');
+        emptyState.className = 'command-empty';
+        emptyState.textContent = 'no matches yet. try another keyword.';
+        commandList.appendChild(emptyState);
+        return;
+    }
+
+    filteredCommands.forEach((item, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'command-item';
+        button.innerHTML = `
+            <div class="command-item-text">
+                <span class="command-item-title">${item.title}</span>
+                <span class="command-item-desc">${item.description}</span>
+            </div>
+            <span class="command-item-hint">${item.external || item.path.startsWith('http') ? '↗' : '↵'}</span>
+        `;
+        if (index === activeCommandIndex) {
+            button.classList.add('active');
+        }
+        button.addEventListener('click', () => handleCommandSelection(item));
+        commandList.appendChild(button);
+    });
+};
+
+const openCommandPalette = () => {
+    commandOverlay.classList.add('open');
+    document.body.classList.add('command-open');
+    commandInput.value = '';
+    filteredCommands = [...commandPaletteItems];
+    activeCommandIndex = 0;
+    renderCommandList();
+    setTimeout(() => commandInput.focus(), 0);
+};
+
+const closeCommandPalette = () => {
+    commandOverlay.classList.remove('open');
+    document.body.classList.remove('command-open');
+    commandInput.blur();
+};
+
+const handleCommandSelection = (item) => {
+    closeCommandPalette();
+    const destination = resolvePath(item.path);
+    if (item.external || item.path.startsWith('http')) {
+        window.open(destination, '_blank');
+    } else {
+        window.location.href = destination;
+    }
+};
+
+const moveCommandSelection = (direction) => {
+    if (!filteredCommands.length) return;
+    activeCommandIndex = (activeCommandIndex + direction + filteredCommands.length) % filteredCommands.length;
+    const buttons = commandList.querySelectorAll('.command-item');
+    buttons.forEach((btn, index) => btn.classList.toggle('active', index === activeCommandIndex));
+    const activeButton = buttons[activeCommandIndex];
+    if (activeButton) {
+        activeButton.scrollIntoView({ block: 'nearest' });
+    }
+};
+
+commandInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    filteredCommands = commandPaletteItems.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query)
+    );
+    activeCommandIndex = 0;
+    renderCommandList();
+});
+
+const handleCommandNavigation = (e) => {
+    if (!commandOverlay.classList.contains('open')) return;
+
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        moveCommandSelection(1);
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        moveCommandSelection(-1);
+    } else if (e.key === 'Enter') {
+        if (document.activeElement !== commandInput) {
+            e.preventDefault();
+        }
+        const targetItem = filteredCommands[activeCommandIndex];
+        if (targetItem) {
+            handleCommandSelection(targetItem);
+        }
+    } else if (e.key === 'Escape') {
+        closeCommandPalette();
+    }
+};
+
+document.addEventListener('keydown', handleCommandNavigation);
+
+commandOverlay.addEventListener('click', (e) => {
+    if (e.target === commandOverlay) {
+        closeCommandPalette();
+    }
+});
+
+commandButton.addEventListener('click', openCommandPalette);
+commandCloseBtn.addEventListener('click', closeCommandPalette);
+
 // Add keyboard shortcuts
 document.addEventListener('keydown', (e) => {
-    // Ctrl/Cmd + K to toggle theme
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    // Ctrl/Cmd + K toggles the command palette
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        themeToggle.click();
+        if (commandOverlay.classList.contains('open')) {
+            closeCommandPalette();
+        } else {
+            openCommandPalette();
+        }
+        return;
     }
     
-    // Ctrl/Cmd + J to open command menu (placeholder)
-    if ((e.ctrlKey || e.metaKey) && e.key === 'j') {
+    // Ctrl/Cmd + T toggles the theme
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 't') {
         e.preventDefault();
-        console.log('Command menu opened');
-        // You can implement a command palette here
+        if (themeToggle) {
+            themeToggle.click();
+        }
     }
 });
 

@@ -1564,6 +1564,215 @@ body.dark-theme .substack-link:hover {
     color: #ff9ec7;
 }
 
+.substack-section {
+    margin: 2rem 0;
+}
+
+.substack-text {
+    margin-bottom: 0.5rem;
+}
+
+/* Command Palette */
+body.command-open {
+    overflow: hidden;
+}
+
+.command-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: #ff9ec7;
+    color: #111827;
+    font-size: 1.2rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.command-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-theme .command-button {
+    background: #ffb3d9;
+    color: #0f172a;
+}
+
+.command-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 2600;
+}
+
+.command-overlay.open {
+    display: flex;
+}
+
+.command-dialog {
+    width: min(92vw, 560px);
+    background: #ffffff;
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+body.dark-theme .command-dialog {
+    background: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    color: #f8fafc;
+}
+
+.command-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #f3f4f6;
+    border-radius: 0.9rem;
+    padding: 0.85rem 1rem;
+}
+
+body.dark-theme .command-header {
+    background: #1f2937;
+}
+
+.command-header input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    color: inherit;
+    outline: none;
+}
+
+.command-header input::placeholder {
+    color: #9ca3af;
+}
+
+body.dark-theme .command-header input::placeholder {
+    color: #6b7280;
+}
+
+.command-close {
+    border: none;
+    background: rgba(15, 23, 42, 0.08);
+    color: inherit;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+}
+
+body.dark-theme .command-close {
+    background: rgba(248, 250, 252, 0.08);
+}
+
+.command-list {
+    max-height: 340px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.command-item {
+    border: none;
+    background: transparent;
+    border-radius: 0.85rem;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    color: inherit;
+}
+
+.command-item:hover,
+.command-item.active {
+    background: rgba(255, 158, 199, 0.18);
+}
+
+body.dark-theme .command-item:hover,
+body.dark-theme .command-item.active {
+    background: rgba(255, 179, 217, 0.16);
+}
+
+.command-item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.command-item-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: lowercase;
+}
+
+.command-item-desc {
+    font-size: 0.82rem;
+    color: #6b7280;
+}
+
+body.dark-theme .command-item-desc {
+    color: #94a3b8;
+}
+
+.command-item-hint {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+body.dark-theme .command-item-hint {
+    color: #cbd5f5;
+}
+
+.command-empty {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+body.dark-theme .command-empty {
+    color: #94a3b8;
+}
+
+@media (max-width: 640px) {
+    .command-button {
+        bottom: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .command-dialog {
+        padding: 1rem;
+    }
+}
+
 /* Theme Page Styles */
 .theme-section {
     margin-bottom: 3rem;
