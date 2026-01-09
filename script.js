@@ -218,20 +218,19 @@ window.addEventListener('scroll', () => {
 
 // Command palette / quick navigation
 const commandPaletteItems = [
-    { title: 'home', description: 'return to the landing page', path: 'index.html' },
-    { title: 'about', description: 'learn more about me', path: 'about.html' },
-    { title: 'now / current', description: 'see what i am working on', path: 'now.html' },
-    { title: 'what was', description: 'past experiences and work', path: 'what-was.html' },
-    { title: 'someday', description: 'future plans & curiosities', path: 'someday.html' },
-    { title: 'notes', description: 'long-form writing and lists', path: 'notes/index.html' },
-    { title: '[in]Sites', description: 'web experiments & builds', path: 'insites/index.html' },
-    { title: 'theme', description: 'songs, hobbies, inspirations', path: 'theme.html' },
-    { title: 'college chronicles', description: 'semester-by-semester notes', path: 'college-chronicles.html' },
-    { title: 'what do you want to be', description: 'living note inside someday', path: 'someday/what-do-you-want-to-be.html' },
-    { title: 'sites i often visit', description: 'internet rabbit holes i revisit', path: 'notes/sites-article.html' },
-    { title: 'logbook', description: 'older experiments archive', path: 'https://manuaishika.github.io/logbook/', external: true },
-    { title: 'substack', description: 'read up on my substack', path: 'https://substack.com/@sillysnoopies?utm_source=user-menu', external: true },
-    { title: 'github', description: 'manuaishika on github', path: 'https://github.com/manuaishika', external: true }
+    { title: 'home', description: 'return to the landing page', path: 'index.html', keywords: ['home', 'main', 'landing'] },
+    { title: 'about', description: 'learn more about me', path: 'about.html', keywords: ['about', 'me', 'info'] },
+    { title: 'now / current', description: 'see what i am working on', path: 'now.html', keywords: ['now', 'current', 'resume', 'cv', 'experience', 'work'] },
+    { title: 'what was', description: 'past experiences and work', path: 'what-was.html', keywords: ['past', 'was', 'history', 'previous', 'resume', 'cv'] },
+    { title: 'someday', description: 'future plans & curiosities', path: 'someday.html', keywords: ['someday', 'future', 'plans'] },
+    { title: 'notes', description: 'long-form writing and lists', path: 'notes/index.html', keywords: ['notes', 'writing', 'blog'] },
+    { title: '[in]Sites', description: 'web experiments & builds', path: 'insites/index.html', keywords: ['insites', 'projects', 'project', 'experiments', 'builds', 'github', 'code'] },
+    { title: 'theme', description: 'songs, hobbies, inspirations', path: 'theme.html', keywords: ['theme', 'songs', 'music', 'hobbies', 'inspirations'] },
+    { title: 'college chronicles', description: 'semester-by-semester notes', path: 'college-chronicles.html', keywords: ['college', 'chronicles', 'university', 'education'] },
+    { title: 'what do you want to be', description: 'living note inside someday', path: 'someday/what-do-you-want-to-be.html', keywords: ['want', 'be', 'identity', 'aims'] },
+    { title: 'sites i often visit', description: 'internet rabbit holes i revisit', path: 'notes/sites-article.html', keywords: ['sites', 'visit', 'links', 'resources'] },
+    { title: 'substack', description: 'read up on my substack', path: 'https://substack.com/@sillysnoopies?utm_source=user-menu', external: true, keywords: ['substack', 'blog', 'writing'] },
+    { title: 'github', description: 'manuaishika on github', path: 'https://github.com/manuaishika', external: true, keywords: ['github', 'code', 'projects', 'repos'] }
 ];
 
 const projectMarker = '/finalboss/';
@@ -336,12 +335,73 @@ const moveCommandSelection = (direction) => {
     }
 };
 
+// Fuzzy matching function for better search
+const fuzzyMatch = (query, text) => {
+    const queryLower = query.toLowerCase();
+    const textLower = text.toLowerCase();
+    
+    // Exact match gets highest priority
+    if (textLower.includes(queryLower)) return 2;
+    
+    // Check if all query characters appear in order
+    let queryIndex = 0;
+    for (let i = 0; i < textLower.length && queryIndex < queryLower.length; i++) {
+        if (textLower[i] === queryLower[queryIndex]) {
+            queryIndex++;
+        }
+    }
+    if (queryIndex === queryLower.length) return 1;
+    
+    // Check for similar sounding words (simple version)
+    const similarWords = {
+        'resume': ['now', 'current', 'work', 'experience', 'cv'],
+        'cv': ['now', 'current', 'work', 'experience', 'resume'],
+        'project': ['insites', 'projects', 'experiments', 'builds'],
+        'projects': ['insites', 'project', 'experiments', 'builds'],
+        'code': ['insites', 'github', 'projects'],
+        'repo': ['insites', 'github', 'projects'],
+        'repos': ['insites', 'github', 'projects']
+    };
+    
+    if (similarWords[queryLower]) {
+        return similarWords[queryLower].some(word => textLower.includes(word)) ? 1 : 0;
+    }
+    
+    return 0;
+};
+
 commandInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase();
-    filteredCommands = commandPaletteItems.filter(item =>
-        item.title.toLowerCase().includes(query) ||
-        item.description.toLowerCase().includes(query)
-    );
+    const query = e.target.value.toLowerCase().trim();
+    
+    if (!query) {
+        filteredCommands = [...commandPaletteItems];
+    } else {
+        filteredCommands = commandPaletteItems
+            .map(item => {
+                let score = 0;
+                
+                // Check title
+                score += fuzzyMatch(query, item.title) * 3;
+                
+                // Check description
+                score += fuzzyMatch(query, item.description) * 2;
+                
+                // Check keywords if they exist
+                if (item.keywords) {
+                    item.keywords.forEach(keyword => {
+                        if (fuzzyMatch(query, keyword)) {
+                            score += 2;
+                        }
+                    });
+                }
+                
+                return { item, score };
+            })
+            .filter(result => result.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .map(result => result.item);
+    }
+    
     activeCommandIndex = 0;
     renderCommandList();
 });
@@ -474,45 +534,6 @@ skillTags.forEach((tag, index) => {
     }, 500 + (index * 100));
 });
 
-// Custom cursor functionality
-const cursor = document.querySelector('.custom-cursor');
-const cursorTrail = document.querySelector('.cursor-trail');
-
-// Update cursor position (guard when custom cursor is not present)
-document.addEventListener('mousemove', (e) => {
-    if (!cursor || !cursorTrail) return;
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    
-    // Add slight delay for trail effect
-    setTimeout(() => {
-        if (!cursorTrail) return;
-        cursorTrail.style.left = e.clientX + 'px';
-        cursorTrail.style.top = e.clientY + 'px';
-    }, 100);
-});
-
-// Add hover effect for interactive elements
-const interactiveElements = document.querySelectorAll('a, button, .skill-tag, .copy-icon');
-interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-        if (cursor) cursor.classList.add('hover');
-    });
-    
-    element.addEventListener('mouseleave', () => {
-        if (cursor) cursor.classList.remove('hover');
-    });
-});
-
-// Hide cursor when leaving window
-document.addEventListener('mouseleave', () => {
-    if (cursor) cursor.style.opacity = '0';
-    if (cursorTrail) cursorTrail.style.opacity = '0';
-});
-
-document.addEventListener('mouseenter', () => {
-    if (cursor) cursor.style.opacity = '1';
-    if (cursorTrail) cursorTrail.style.opacity = '1';
-});
+// Custom cursor functionality removed - using default browser cursor
 
 console.log('Portfolio website loaded successfully! 🚀');
