@@ -1072,7 +1072,7 @@ body.dark-theme .work-item {
 }
 
 .company a {
-    color: #3b82f6;
+    color: #ff9ec7;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1165,6 +1165,79 @@ body.dark-theme .extensions-title {
     padding: 0;
 }
 
+.extension-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.extension-left {
+    flex: 1;
+}
+
+.extension-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    align-items: flex-start;
+    padding-top: 0.2rem;
+}
+
+.link-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.source-link {
+    background-color: rgba(255, 158, 199, 0.1);
+    color: #ff9ec7;
+    border: 1px solid rgba(255, 158, 199, 0.3);
+}
+
+.source-link:hover {
+    background-color: rgba(255, 158, 199, 0.2);
+    color: #ff7eb3;
+}
+
+.live-link {
+    background-color: rgba(255, 158, 199, 0.1);
+    color: #ff9ec7;
+    border: 1px solid rgba(255, 158, 199, 0.3);
+}
+
+.live-link:hover {
+    background-color: rgba(255, 158, 199, 0.2);
+    color: #ff7eb3;
+}
+
+body.dark-theme .source-link {
+    background-color: rgba(255, 179, 217, 0.15);
+    color: #ffb3d9;
+    border-color: rgba(255, 179, 217, 0.3);
+}
+
+body.dark-theme .source-link:hover {
+    background-color: rgba(255, 179, 217, 0.25);
+    color: #ff9ec7;
+}
+
+body.dark-theme .live-link {
+    background-color: rgba(255, 179, 217, 0.15);
+    color: #ffb3d9;
+    border-color: rgba(255, 179, 217, 0.3);
+}
+
+body.dark-theme .live-link:hover {
+    background-color: rgba(255, 179, 217, 0.25);
+    color: #ff9ec7;
+}
+
 .extension-link {
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -1174,16 +1247,16 @@ body.dark-theme .extensions-title {
 }
 
 .extension-link:hover .extension-text {
-    color: #3b82f6;
+    color: #ff9ec7;
 }
 
 body.dark-theme .extension-link:hover .extension-text {
-    color: #60a5fa;
+    color: #ffb3d9;
 }
 
 .extension-text {
     font-size: 0.9rem;
-    color: #3b82f6;
+    color: #ff9ec7;
     font-style: normal;
 }
 
@@ -1220,16 +1293,16 @@ body.dark-theme .projects-title {
 }
 
 .project-link:hover .project-text {
-    color: #3b82f6;
+    color: #ff9ec7;
 }
 
 body.dark-theme .project-link:hover .project-text {
-    color: #60a5fa;
+    color: #ffb3d9;
 }
 
 .project-text {
     font-size: 0.9rem;
-    color: #3b82f6;
+    color: #ff9ec7;
     font-style: normal;
 }
 
@@ -1257,18 +1330,18 @@ body.dark-theme .github-link {
 }
 
 .github-text {
-    color: #3b82f6;
+    color: #ff9ec7;
     text-decoration: underline;
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 .github-text:hover {
-    color: #1d4ed8;
+    color: #ff7eb3;
 }
 
 body.dark-theme .github-text {
-    color: #60a5fa;
+    color: #ffb3d9;
 }
 
 body.dark-theme .github-text:hover {
@@ -1304,23 +1377,23 @@ body.dark-theme .school-life-intro p {
 }
 
 .school-link {
-    color: #3b82f6;
+    color: #ff9ec7;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .school-link:hover {
-    color: #1d4ed8;
+    color: #ff7eb3;
     text-decoration: underline;
 }
 
 body.dark-theme .school-link {
-    color: #60a5fa;
+    color: #ffb3d9;
 }
 
 body.dark-theme .school-link:hover {
-    color: #93c5fd;
+    color: #ff9ec7;
 }
 
 .school-achievements {
@@ -1843,7 +1916,7 @@ body.dark-theme .section-divider {
 }
 
 .inspiration-link {
-    color: #3b82f6;
+    color: #ff9ec7;
     text-decoration: underline;
     text-underline-offset: 2px;
     text-decoration-thickness: 1px;

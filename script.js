@@ -493,12 +493,9 @@ document.querySelectorAll('[title]').forEach(element => {
 
 // Dynamic rotating titles
 const titles = [
-    "design engineer, etc.",
+    "design engineer",
     "problem solver",
-    "creative developer",
-    "tech enthusiast",
-    "innovation seeker",
-    "code artist"
+    "creative developer"
 ];
 
 let currentTitleIndex = 0;
