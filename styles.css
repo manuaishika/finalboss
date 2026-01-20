@@ -174,15 +174,20 @@ body.dark-theme .venn-intro {
     color: #666;
     background: transparent;
     border: 2px solid #e5e7eb;
-    transition: transform 0.2s ease;
-    animation: none;
+    box-shadow: none;
+    transition: transform 0.2s ease, box-shadow 0.4s ease;
+    animation: vennPulse 3s ease-in-out infinite;
     cursor: pointer;
 }
 
-/* Single phased spotlight; per-circle delays keep exactly one active */
-@keyframes spotCycle {
-    0%, 29% { border-color: var(--spot-border); background: var(--spot-bg); }
-    29.01%, 100% { border-color: #e5e7eb; background: transparent; }
+/* Soft synchronized pulse for all circles */
+@keyframes vennPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: 0 0 12px 2px var(--spot-border);
+    }
 }
 
 .venn-circle:hover {
@@ -194,26 +199,26 @@ body.dark-theme .venn-intro {
 .venn-circle.purpose {
     top: 40px;
     left: 60px;
-    --spot-border: rgba(16, 185, 129, 0.6);
+    --spot-border: rgba(16, 185, 129, 0.4);
     --spot-bg: rgba(16, 185, 129, 0.05);
-    animation: none;
+    animation: vennPulse 3s ease-in-out infinite;
 }
 
 .venn-circle.resilience {
     top: 40px;
     right: 60px;
-    --spot-border: rgba(59, 130, 246, 0.6);
+    --spot-border: rgba(59, 130, 246, 0.4);
     --spot-bg: rgba(59, 130, 246, 0.05);
-    animation: none;
+    animation: vennPulse 3s ease-in-out infinite;
 }
 
 .venn-circle.empathy {
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    --spot-border: rgba(168, 85, 247, 0.6);
+    --spot-border: rgba(168, 85, 247, 0.4);
     --spot-bg: rgba(168, 85, 247, 0.05);
-    animation: none;
+    animation: vennPulse 3s ease-in-out infinite;
 }
 
 /* Remove group dim effect */
