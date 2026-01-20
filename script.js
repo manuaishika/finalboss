@@ -222,12 +222,11 @@ const commandPaletteItems = [
     { title: 'about', description: 'learn more about me', path: 'about.html', keywords: ['about', 'me', 'info'] },
     { title: 'now / current', description: 'see what i am working on', path: 'now.html', keywords: ['now', 'current', 'resume', 'cv', 'experience', 'work'] },
     { title: 'what was', description: 'past experiences and work', path: 'what-was.html', keywords: ['past', 'was', 'history', 'previous', 'resume', 'cv'] },
-    { title: 'someday', description: 'future plans & curiosities', path: 'someday.html', keywords: ['someday', 'future', 'plans'] },
     { title: 'notes', description: 'long-form writing and lists', path: 'notes/index.html', keywords: ['notes', 'writing', 'blog'] },
     { title: '[in]Sites', description: 'web experiments & builds', path: 'insites/index.html', keywords: ['insites', 'projects', 'project', 'experiments', 'builds', 'github', 'code'] },
     { title: 'theme', description: 'songs, hobbies, inspirations', path: 'theme.html', keywords: ['theme', 'songs', 'music', 'hobbies', 'inspirations'] },
     { title: 'college chronicles', description: 'semester-by-semester notes', path: 'college-chronicles.html', keywords: ['college', 'chronicles', 'university', 'education'] },
-    { title: 'what do you want to be', description: 'living note inside someday', path: 'someday/what-do-you-want-to-be.html', keywords: ['want', 'be', 'identity', 'aims'] },
+    { title: 'what do you want to be', description: 'living note in notes', path: 'someday/what-do-you-want-to-be.html', keywords: ['want', 'be', 'identity', 'aims', 'notes'] },
     { title: 'sites i often visit', description: 'internet rabbit holes i revisit', path: 'notes/sites-article.html', keywords: ['sites', 'visit', 'links', 'resources'] },
     { title: 'substack', description: 'read up on my substack', path: 'https://substack.com/@sillysnoopies?utm_source=user-menu', external: true, keywords: ['substack', 'blog', 'writing'] },
     { title: 'github', description: 'manuaishika on github', path: 'https://github.com/manuaishika', external: true, keywords: ['github', 'code', 'projects', 'repos'] }
