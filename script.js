@@ -492,9 +492,18 @@ document.querySelectorAll('[title]').forEach(element => {
 
 // Dynamic rotating titles
 const titles = [
-    "design engineer",
+    "designer",
+    "developer",
     "problem solver",
-    "creative developer"
+    "curious researcher",
+    "ml engineer"
+    // Other suggestions you could add:
+    // "ml engineer",
+    // "quant researcher", 
+    // "systems thinker",
+    // "builder",
+    // "experimenter",
+    // "technologist"
 ];
 
 let currentTitleIndex = 0;
@@ -514,8 +523,8 @@ function rotateTitle() {
     }
 }
 
-// Rotate title every 3 seconds
-setInterval(rotateTitle, 3000);
+// Rotate title every 2 seconds
+setInterval(rotateTitle, 2000);
 
 // Add smooth reveal animation for skills
 const skillTags = document.querySelectorAll('.skill-tag');
