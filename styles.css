@@ -21,6 +21,15 @@ body.dark-theme {
     color: #e0e0e0;
 }
 
+/* Global link hover states */
+a {
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
 .container {
     min-height: 100vh;
     max-width: 1400px;
@@ -50,7 +59,7 @@ body.dark-theme {
 .name {
     font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: #000;
     line-height: 1.2;
     text-transform: lowercase;
@@ -60,15 +69,51 @@ body.dark-theme .name {
     color: #fff;
 }
 
-.dynamic-title {
+.hero-tagline {
     font-size: 1.1rem;
     color: #666;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: 400;
+    line-height: 1.4;
 }
 
-body.dark-theme .dynamic-title {
+.hero-tagline p {
+    margin: 0;
+}
+
+body.dark-theme .hero-tagline {
     color: #999;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.hero-subtitle p {
+    margin: 0;
+}
+
+body.dark-theme .hero-subtitle {
+    color: #999;
+}
+
+.hero-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.hero-description p {
+    margin: 0;
+}
+
+body.dark-theme .hero-description {
+    color: #ccc;
 }
 
 /* Sections */
@@ -79,6 +124,10 @@ body.dark-theme .dynamic-title {
     color: #000;
     text-transform: lowercase;
     text-align: left;
+}
+
+.section-title-spaced {
+    margin-top: 2rem;
 }
 
 body.dark-theme .section-title {
@@ -415,6 +464,44 @@ body.dark-theme .skills-list li::before {
     color: #ff9ec7;
 }
 
+.skills-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+.skills-column {
+    margin-bottom: 0;
+}
+
+.skills-inline {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.skills-inline span {
+    display: inline;
+}
+
+body.dark-theme .skills-inline {
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .skills-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Dive Deeper Section */
+.dive-deeper-section {
+    margin-bottom: 3rem;
+}
+
 /* Elsewhere Section */
 .elsewhere-section {
     margin-bottom: 3rem;
@@ -429,59 +516,65 @@ body.dark-theme .skills-list li::before {
 }
 
 .social-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
     align-items: center;
     gap: 1rem;
-    padding: 0.4rem 0;
+    padding: 0.5rem 0;
 }
 
 .social-label {
     font-size: 0.9rem;
     color: #666;
     text-transform: lowercase;
-    min-width: 80px;
+    text-align: left;
 }
 
 body.dark-theme .social-label {
     color: #999;
 }
 
-.social-value {
-    flex: 1;
+.social-link {
     color: #000;
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: none;
-    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.2s ease;
 }
 
-.social-value:hover {
-    color: #10b981;
+.social-link:hover {
+    opacity: 0.7;
 }
 
-body.dark-theme .social-value {
+.social-link i {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+body.dark-theme .social-link {
     color: #fff;
 }
 
-body.dark-theme .social-value:hover {
-    color: #10b981;
-}
-
-.copy-icon {
+.copy-button {
+    background: none;
+    border: none;
     cursor: pointer;
     color: #666;
-    transition: color 0.3s ease;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
 }
 
-.copy-icon:hover {
-    color: #000;
+.copy-button:hover {
+    opacity: 0.7;
 }
 
-body.dark-theme .copy-icon {
+body.dark-theme .copy-button {
     color: #999;
-}
-
-body.dark-theme .copy-icon:hover {
-    color: #fff;
 }
 
 .friendly-message {

@@ -223,7 +223,7 @@ const commandPaletteItems = [
     { title: 'now / current', description: 'see what i am working on', path: 'now.html', keywords: ['now', 'current', 'resume', 'cv', 'experience', 'work'] },
     { title: 'what was', description: 'past experiences and work', path: 'what-was.html', keywords: ['past', 'was', 'history', 'previous', 'resume', 'cv'] },
     { title: 'notes', description: 'long-form writing and lists', path: 'notes/index.html', keywords: ['notes', 'writing', 'blog'] },
-    { title: '[in]Sites', description: 'web experiments & builds', path: 'insites/index.html', keywords: ['insites', 'projects', 'project', 'experiments', 'builds', 'github', 'code'] },
+    { title: 'work', description: 'technical projects and websites', path: 'insites/index.html', keywords: ['work', 'projects', 'project', 'experiments', 'builds', 'github', 'code', 'insites'] },
     { title: 'theme', description: 'songs, hobbies, inspirations', path: 'theme.html', keywords: ['theme', 'songs', 'music', 'hobbies', 'inspirations'] },
     { title: 'college chronicles', description: 'semester-by-semester notes', path: 'college-chronicles.html', keywords: ['college', 'chronicles', 'university', 'education'] },
     { title: 'what do you want to be', description: 'living note in notes', path: 'someday/what-do-you-want-to-be.html', keywords: ['want', 'be', 'identity', 'aims', 'notes'] },
